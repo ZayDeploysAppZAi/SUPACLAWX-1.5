@@ -435,7 +435,7 @@ class Handler(SimpleHTTPRequestHandler):
 
 if __name__ == "__main__":
     host = "0.0.0.0"
-    port = 8765
+    port = int(os.getenv("PORT", os.getenv("SERVER_PORT", "8765")))
     server = HTTPServer((host, port), Handler)
     print(f"NemoClaw Intelligence Server: http://localhost:{port}")
     print(f"Static files: {OUTPUT_DIR}")
